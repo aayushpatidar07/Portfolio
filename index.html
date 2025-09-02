@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aayush Patidar – Developer & Prompt Engineer</title>
+  <meta name="description" content="A modern, fast one‑page website for Aayush Patidar – Software Developer & Prompt Engineer." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <meta property="og:title" content="Aayush Patidar – Portfolio" />
+  <meta property="og:description" content="AI-powered apps, intelligent assistants (RAPPs), and full‑stack builds." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.png" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230ea5e9'/%3E%3Ctext x='50' y='58' font-size='56' text-anchor='middle' fill='white' font-family='Segoe UI, Roboto, Arial, sans-serif'%3EA%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* ----------------------
+       Base + Theme
+    -----------------------*/
+    :root {
+      --bg: #0b0e14;
+      --surface: #121826;
+      --muted: #8891a7;
+      --text: #e6ebff;
+      --brand: #0ea5e9; /* sky-500 */
+      --brand-2: #22d3ee; /* cyan-400 */
+      --ring: rgba(34, 211, 238, 0.35);
+      --card: #0f1422;
+      --ok: #22c55e;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    :root.light {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --muted: #5b6476;
+      --text: #0f172a;
+      --brand: #0ea5e9;
+      --brand-2: #0891b2;
+      --ring: rgba(14, 165, 233, 0.35);
+      --card: #ffffff;
+      --shadow: 0 8px 24px rgba(2, 6, 23, .08);
+    }
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(34,211,238,.18), transparent 60%),
+                  radial-gradient(900px 500px at -10% 20%, rgba(14,165,233,.18), transparent 60%),
+                  var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none }
+    img { max-width: 100%; display: block }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px }
+
+    /* ----------------------
+       Header / Navbar
+    -----------------------*/
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(180%) blur(10px);
+      background: color-mix(in oklab, var(--bg) 80%, transparent);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .brand { display: flex; gap: 10px; align-items: center; font-weight: 700 }
+    .brand-badge {
+      width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      display: grid; place-items: center; box-shadow: var(--shadow);
+    }
+    .brand-badge span { font-size: 18px; color: #fff }
+    .nav-links { display: flex; gap: 18px; align-items: center }
+    .nav-links a { opacity: .9; padding: 8px 10px; border-radius: 10px }
+    .nav-links a:hover { background: rgba(255,255,255,.06) }
+    .menu-btn { display: none; background: none; border: 0; color: var(--text); font-size: 22px; }
+    .theme-toggle { border: 1px solid rgba(255,255,255,.1); padding: 6px 10px; border-radius: 10px; }
+
+    @media (max-width: 880px) {
+      .menu-btn { display: inline-flex }
+      .nav-links { position: fixed; inset: 64px 0 auto 0; background: var(--surface); flex-direction: column; padding: 16px;
+                   transform: translateY(-120%); transition: transform .25s ease; border-bottom: 1px solid rgba(255,255,255,.06) }
+      .nav-links.open { transform: translateY(0) }
+    }
+
+    /* ----------------------
+       Hero
+    -----------------------*/
+    .hero { padding: 72px 0 40px }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center }
+    .title { font-size: clamp(28px, 6vw, 48px); line-height: 1.12; margin: 0 0 10px }
+    .gradient { background: linear-gradient(135deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent }
+    .subtitle { font-size: clamp(16px, 2.7vw, 19px); color: var(--muted); margin: 0 0 16px }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12);
+           background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); cursor: pointer; color: var(--text) }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-color: transparent; color: white; box-shadow: var(--shadow) }
+    .hero-card { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: 18px; padding: 18px; box-shadow: var(--shadow) }
+
+    .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px }
+    .kpi { background: var(--surface); border: 1px solid rgba(255,255,255,.06); border-radius: 14px; padding: 14px; text-align: center }
+    .kpi h4 { margin: 0; font-size: 22px }
+    .kpi p { margin: 4px 0 0; font-size: 12px; color: var(--muted) }
+
+    @media (max-width: 880px) {
+      .hero-grid { grid-template-columns: 1fr }
+    }
+
+    /* ----------------------
+       Sections
+    -----------------------*/
+    section { padding: 64px 0 }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px }
+    .section-head h2 { margin: 0; font-size: 26px }
+    .section-head p { margin: 0; color: var(--muted) }
+
+    /* Cards grid */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px }
+    @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr) } }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr } }
+
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column }
+    .card img { aspect-ratio: 16/9; object-fit: cover; background: #0e121b }
+    .card .content { padding: 14px }
+    .chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12) }
+
+    /* ----------------------
+       Skills / Tools
+    -----------------------*/
+    .skills { display: flex; gap: 10px; flex-wrap: wrap }
+    .skill { padding: 8px 12px; border-radius: 999px; background: var(--surface); border: 1px solid rgba(255,255,255,.06); font-size: 13px }
+
+    /* ----------------------
+       Contact
+    -----------------------*/
+    .contact {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .form { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: 16px; padding: 18px; box-shadow: var(--shadow) }
+    .field { display: grid; gap: 6px; margin: 8px 0 }
+    .field input, .field textarea {
+      padding: 12px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: var(--surface); color: var(--text);
+      outline: none; box-shadow: 0 0 0 0 var(--ring); transition: box-shadow .15s ease
+    }
+    .field input:focus, .field textarea:focus { box-shadow: 0 0 0 4px var(--ring) }
+    .note { color: var(--muted); font-size: 12px }
+
+    @media (max-width: 900px) { .contact { grid-template-columns: 1fr } }
+
+    /* ----------------------
+       Footer
+    -----------------------*/
+    footer { padding: 40px 0; border-top: 1px solid rgba(255,255,255,.06) }
+    .foot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; color: var(--muted) }
+
+    /* Utility */
+    .muted { color: var(--muted) }
+    .hidden { display:none }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-badge"><span>AP</span></div>
+        <a href="#" aria-label="Home">Aayush Patidar</a>
+      </div>
+      <nav>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">☰</button>
+        <div class="nav-links" id="navLinks" role="menu">
+          <a href="#about" role="menuitem">About</a>
+          <a href="#projects" role="menuitem">Projects</a>
+          <a href="#services" role="menuitem">Services</a>
+          <a href="#contact" role="menuitem">Contact</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌓 Theme</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="title">Hi, I'm <span class="gradient">Aayush Patidar</span></h1>
+        <p class="subtitle">Software Developer & Prompt Engineer crafting AI‑powered applications, intelligent assistants (RAPPs), and clean, performant web apps.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">🚀 View Projects</a>
+          <a class="btn" href="#contact">✉️ Contact Me</a>
+          <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer noopener">GitHub ↗</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><h4>25+</h4><p>Projects</p></div>
+          <div class="kpi"><h4>10+</h4><p>RAPPs Built</p></div>
+          <div class="kpi"><h4>5★</h4><p>Client Rating</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <strong>Currently building</strong>
+          <p class="muted">AI‑Powered Emergency Assistant · Recipe Maker · MoodiMate</p>
+          <div class="skills" style="margin-top:10px">
+            <span class="skill">HTML5</span>
+            <span class="skill">CSS3</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">.NET</span>
+            <span class="skill">Python</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">FastAPI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>About</h2>
+        <p>Who I am & what I do</p>
+      </div>
+      <p class="muted">I'm a developer focused on AI‑first products: text‑to‑text prompt systems, intelligent RAPPs, and data‑driven apps. I love building clean UIs with modern JS and robust back‑ends.</p>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <h2>Featured Projects</h2>
+        <a class="btn" href="#">See all</a>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <img alt="Project cover" src="https://images.unsplash.com/photo-1527430253228-e93688616381?q=80&w=1200&auto=format&fit=crop"/>
+          <div class="content">
+            <div class="chip">RAPP · AI Assistant</div>
+            <h3>EMAIL Agent</h3>
+            <p class="muted">Reads emails, extracts structured data, and automates storage & reporting.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img alt="Project cover" src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1200&auto=format&fit=crop"/>
+          <div class="content">
+            <div class="chip">Full‑Stack</div>
+            <h3>Smart Waste Management</h3>
+            <p class="muted">IoT + AI platform for real‑time bin monitoring and route optimization.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img alt="Project cover" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop"/>
+          <div class="content">
+            <div class="chip">Wellness</div>
+            <h3>MoodiMate</h3>
+            <p class="muted">Personalized stress‑relief assistant with 3/7/30‑day plans and verified resources.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Services</h2>
+        <p>How I can help</p>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="content">
+          <h3>AI Assistants (RAPPs)</h3>
+          <p class="muted">Design & build custom assistants: prompt design, evaluation, and guardrails.</p>
+        </div></div>
+        <div class="card"><div class="content">
+          <h3>Web Apps</h3>
+          <p class="muted">Modern, responsive SPAs and back‑ends with FastAPI / .NET.</p>
+        </div></div>
+        <div class="card"><div class="content">
+          <h3>Data Dashboards</h3>
+          <p class="muted">Power BI reports, KPI tracking, and data pipelines.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Let's build something</p>
+      </div>
+      <div class="contact">
+        <form class="form" action="https://formspree.io/f/your-id" method="POST">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="msg">Message</label>
+            <textarea id="msg" name="message" rows="5" placeholder="Tell me about your project…" required></textarea>
+          </div>
+          <button class="btn primary" type="submit">Send Message</button>
+          <p class="note">Form powered by Formspree. Replace <code>your-id</code> with your endpoint.</p>
+        </form>
+        <div class="form">
+          <h3>Connect</h3>
+          <p class="muted">Email: <a href="mailto:aayush@example.com">aayush@example.com</a><br/>Phone: +91 91112 99986</p>
+          <div class="skills" style="margin-top:12px">
+            <a class="skill" href="#">LinkedIn</a>
+            <a class="skill" href="#">GitHub</a>
+            <a class="skill" href="#">Portfolio</a>
+            <a class="skill" href="#">Resume</a>
+          </div>
+          <p class="note" style="margin-top:12px">Based in India · Available for freelance & full‑time roles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot">
+      <span>© <span id="y"></span> Aayush Patidar</span>
+      <span>Built with ♥ – Fast, accessible, responsive.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn?.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Theme toggle (dark / light persists)
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme') || 'dark';
+    if (saved === 'light') root.classList.add('light');
+    themeToggle?.addEventListener('click', () => {
+      root.classList.toggle('light');
+      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id.length > 1) {
+          e.preventDefault();
+          document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          navLinks.classList.remove('open');
+        }
+      })
+    })
+
+    // Current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
