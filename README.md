@@ -57,5 +57,4 @@ This portfolio represents my learning journey and practical experience.
 1. Clone the repository  
    ```bash
    git clone https://github.com/your-username/portfolio-website.git
-git
 
